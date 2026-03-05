@@ -187,6 +187,16 @@ from property_type as pt join property_location as pl on pt.type_id=pl.location_
 join property_detail as pd on pl.location_id=pd.location_id
 
 --6. find properties handled by specific agent
+   select a.agent_id,
+       a.agent_name,
+       p.property_id,
+       p.property_title,
+       p.price,
+       p.status
+from agents as a
+join property_detail as p
+on a.agent_id = p.agent_id
+where a.agent_name = 'Agent_Name';
 
 --7.find the most expensive property
 select property_id,size_sqft,price from property_detail
